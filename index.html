@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        
+    </div>
+    <div class="reset-button-div">
+        <button class="reset-button">Reset Grid</button>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+
+        for (let i = 0; i < 16; i++) {
+
+            const row = document.createElement('div');
+            row.classList.add('row');
+            row.style.backgroundColor = 'red';
+            row.style.display = 'flex';
+            row.style.width = '100%';
+            row.style.justifyContent = 'center';
+
+            for (let i = 0; i < 16; i++) {
+                const column = document.createElement('div');
+                column.classList.add('column');
+                column.style.backgroundColor = 'white';
+                column.style.width = '50px';
+                column.style.height = '50px';
+                column.style.border = '2px solid black';
+
+                column.addEventListener('mouseover', () => {
+                    column.style.backgroundColor = 'black';
+                })
+
+                row.appendChild(column);
+            }
+
+            container.appendChild(row);
+
+            const button = document.querySelector('.reset-button');
+
+            button.addEventListener('mouseover', () => {
+                const columns = document.querySelectorAll('.column');
+
+                columns.style.backgroundColor = 'white';
+            })
+        }
+
+    </script>
+</body>
+</html>
