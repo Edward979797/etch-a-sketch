@@ -11,14 +11,27 @@
     <div class="container">
         
     </div>
-    <div class="reset-button-div">
+    <div class="button-container">
+        <button class="clear-button">Clear Grid</button>
         <button class="reset-button">Reset Grid</button>
     </div>
     <script>
         const container = document.querySelector('.container');
 
-        for (let i = 0; i < 16; i++) {
+        const clear = document.querySelector('.clear-button');
+        const reset = document.querySelector('.reset-button');
 
+        const gridSize = Number(prompt('What size should the grid be (in pixels)?'));
+
+        if (gridSize < 4) {
+            alert('Grid must be 4x4 or larger');
+            location.reload();
+        } else if (gridSize > 100) {
+            alert('Grid cannot exceed 100x100')
+            location.reload();
+        } else {
+
+        for (let i = 0; i < gridSize; i++) {
             const row = document.createElement('div');
             row.classList.add('row');
             row.style.backgroundColor = 'red';
@@ -26,32 +39,39 @@
             row.style.width = '100%';
             row.style.justifyContent = 'center';
 
-            for (let i = 0; i < 16; i++) {
+            for (let i = 0; i < gridSize; i++) {
                 const column = document.createElement('div');
                 column.classList.add('column');
                 column.style.backgroundColor = 'white';
-                column.style.width = '50px';
-                column.style.height = '50px';
+                column.style.width = `${800 / gridSize}px`;
+                column.style.height = `${800 / gridSize}px`;
                 column.style.border = '2px solid black';
 
                 column.addEventListener('mouseover', () => {
-                    column.style.backgroundColor = 'black';
+                column.style.backgroundColor = 'black';
                 })
 
-                row.appendChild(column);
+               row.appendChild(column);
             }
 
             container.appendChild(row);
-
-            const button = document.querySelector('.reset-button');
-
-            button.addEventListener('mouseover', () => {
-                const columns = document.querySelectorAll('.column');
-
-                columns.style.backgroundColor = 'white';
-            })
         }
 
+
+        clear.addEventListener('click', () => {
+            const columns = document.querySelectorAll('.column');
+
+            columns.forEach((column) => {
+                column.style.backgroundColor = 'white';
+            });
+
+        })
+
+        reset.addEventListener('click', () => {
+            location.reload();
+        })
+
+    }
     </script>
 </body>
 </html>

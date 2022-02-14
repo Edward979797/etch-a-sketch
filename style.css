@@ -15,14 +15,29 @@ html, body {
     height: fit-content;
 }
 
-button {
+.clear-button {
+    color: white;
+    background-color: green;;
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 30px;
+    margin: 40px;
+}
+
+.reset-button {
     color: white;
     background-color: red;;
     border-radius: 25px;
     height: 100px;
     width: 100px;
     text-align: center;
-    border: 4px green solid;
     font-size: 30px;
-    margin-left: 60px;
+    margin: 40px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
 }
