@@ -12,8 +12,8 @@
         
     </div>
     <div class="button-container">
-        <button class="clear-button">Clear Grid</button>
-        <button class="reset-button">Reset Grid</button>
+        <button class="clear-button">Clear</button>
+        <button class="reset-button">Reset</button>
     </div>
     <script>
         const container = document.querySelector('.container');
@@ -45,7 +45,7 @@
                 column.style.backgroundColor = 'white';
                 column.style.width = `${800 / gridSize}px`;
                 column.style.height = `${800 / gridSize}px`;
-                column.style.border = '2px solid black';
+                column.style.border = '0px solid black';
 
                 column.addEventListener('mouseover', () => {
                 column.style.backgroundColor = 'black';
